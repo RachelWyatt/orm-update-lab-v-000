@@ -59,16 +59,27 @@ attr_accessor :id, :name, :grade
       SELECT *
       FROM students
       WHERE name = ?
+<<<<<<< HEAD
       LIMIT 1
     SQL
     DB[:conn].execute(sql, name).map do |row|
       self.new_from_db(row)
     end.first
+=======
+    SQL
+    DB[:conn].execute(sql, name).map do |row|
+      self.new_from_db(row)
+    end
+>>>>>>> a88b5882fdefc0ec1b227984f952af2050c1aa2a
   end
 
   def update
     sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
+<<<<<<< HEAD
     DB[:conn].execute(sql, self.name, self.grade, self.id)
+=======
+    DB[:conn].execute(sql, self.id, self.name, self.grade)
+>>>>>>> a88b5882fdefc0ec1b227984f952af2050c1aa2a
   end
 
 
